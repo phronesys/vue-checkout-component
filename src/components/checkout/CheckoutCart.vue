@@ -1,13 +1,21 @@
 <template>
-  <div>checkout cart</div>
+  <div>
+    <cart-items />
+    <cart-total />
+  </div>
 </template>
 
 <script>
-export default {
+import CartItems from "./cart/CartItems";
+import CartTotal from "./cart/CartTotal";
 
-}
+export default {
+  components: {
+    CartItems,
+    CartTotal,
+  },
+};
 </script>
 
 <style>
-
 </style>
