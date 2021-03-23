@@ -1,34 +1,7 @@
-# checkout-vue-3
+# vue-checkout-component
 
-## Project setup
-```
-yarn install
-```
+## Built with
+Vue 3 + TailwindCSS, and following a TDD (jest) + mobil first.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Run your unit tests
-```
-yarn test:unit
-```
-
-### Run your end-to-end tests
-```
-yarn test:e2e
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## A reusable component
+I'm following the design from a figma provided by [devchallenges.io](https://devchallenges.io/challenges/0J1NxxGhOUYVqihwegfO)
