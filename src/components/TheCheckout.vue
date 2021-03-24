@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div class="checkout">
     <h1 class="checkout__title">
       The Checkout
     </h1>
-    <div>
+    <div class="checkout__cart">
       <checkout-cart />
     </div>
-    <div>
+    <div class="checkout__form">
       <checkout-form />
     </div>
   </div>

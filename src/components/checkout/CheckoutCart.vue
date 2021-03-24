@@ -1,17 +1,17 @@
 <template>
   <div>
-    <cart-items />
+    <cart-list />
     <cart-total />
   </div>
 </template>
 
 <script>
-import CartItems from "./cart/CartItems";
+import CartList from "./cart/CartList";
 import CartTotal from "./cart/CartTotal";
 
 export default {
   components: {
-    CartItems,
+    CartList,
     CartTotal,
   },
 };
