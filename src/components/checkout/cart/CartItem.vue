@@ -1,7 +1,7 @@
 <template>
   <div class="item">
     <img
-      :src="require(`../../../assets/${item.picture}`)"
+      :src="feedImage"
       class="item__picture"
     >
     <div class="item__details">
@@ -43,6 +43,11 @@ export default {
       item: this.itemProp,
     };
   },
+  computed: {
+    feedImage() {
+      return require(`../../../assets/${this.item.picture}`);
+    }
+  }
 };
 </script>
 

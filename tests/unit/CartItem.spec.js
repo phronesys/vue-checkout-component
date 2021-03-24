@@ -5,7 +5,7 @@ describe('CartItem', () => {
   it('shows picture, name, price and counter classes', () => {
     const wrapper = shallowMount(CartItem);
 
-    // expect(wrapper.find('.item__picture').exists()).toBe(true);
+    expect(wrapper.find('.item__picture').exists()).toBe(true);
     expect(wrapper.find('.item__name').exists()).toBe(true);
     expect(wrapper.find('.item__price--offer').exists()).toBe(true);
     expect(wrapper.find('.item__price--normal').exists()).toBe(true);
@@ -18,7 +18,7 @@ describe('CartItem', () => {
           type: Object,
           default: {
             id: 0,
-            picture: "",
+            picture: "cart-item-1.jpeg",
             name: "Silla Gamer",
             offerPrice: 129,
             normalPrice: 200,
