@@ -1,7 +1,6 @@
 <template>
   <div class="item">
     <img
-      v-if="!isLoading"
       :src="require(`../../../assets/${item.picture}`)"
       class="item__picture"
     >
@@ -42,12 +41,8 @@ export default {
   data() {
     return {
       item: this.itemProp,
-      isLoading: true,
     };
   },
-  mounted() {
-    this.isLoading = false;
-  }
 };
 </script>
 
