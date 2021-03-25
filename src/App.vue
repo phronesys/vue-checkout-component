@@ -1,6 +1,6 @@
 <template>
   <div>
-    <the-checkout />
+    <the-checkout class="font-sans" />
   </div>
 </template>
 
@@ -23,4 +23,12 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+*,
+*::after,
+*::before {
+  @apply box-border;
+  margin: 0;
+  padding: 0;
+}
+
 </style>
