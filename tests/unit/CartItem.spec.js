@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, mount } from '@vue/test-utils';
 import CartItem from '@/components/checkout/cart/CartItem';
 
 describe('CartItem', () => {
@@ -12,7 +12,7 @@ describe('CartItem', () => {
     expect(wrapper.find('.item__counter').exists()).toBe(true);
   });
   it('show parent props inside tags on: name, prices, and default count as 1', () => {
-    const wrapper = shallowMount(CartItem, {
+    const wrapper = mount(CartItem, {
       props: {
         item: {
           type: Object,
@@ -35,9 +35,10 @@ describe('CartItem', () => {
     const counter = wrapper.find('.item__counter');
 
     expect(name.text()).toEqual('Silla Gamer');
-    expect(offerPrice.text()).toEqual("129");
-    expect(normalPrice.text()).toEqual("200");
-    expect(counter.text()).toEqual("1");
+    expect(offerPrice.text()).toEqual("$129");
+    expect(normalPrice.text()).toEqual("$200");
+    // refactor this!
+    expect(counter.text()).toEqual("remove1add");
 
   })
   it('shows picture after 0,1 second', () => {

@@ -1,11 +1,15 @@
 <template>
   <div>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <the-checkout class="font-sans" />
   </div>
 </template>
 
 <script>
-import TheCheckout from '@/components/TheCheckout';
+import TheCheckout from "@/components/TheCheckout";
 export default {
   name: "App",
   components: {
@@ -30,5 +34,4 @@ export default {
   margin: 0;
   padding: 0;
 }
-
 </style>
