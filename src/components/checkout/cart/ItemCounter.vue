@@ -1,6 +1,8 @@
 <template>
   <div class="counter-box">
-    <button class="counter--remove material-icons">remove</button>
+    <button class="counter--remove material-icons" @click="remove">
+      remove
+    </button>
     <h1 class="counter">
       {{ count }}
     </h1>
@@ -23,10 +25,10 @@ export default {
   },
   methods: {
     add() {
-      this.count++;
+      return this.count++;
     },
     remove() {
-      this.count--;
+      return (this.count <= 0) ? this.count : this.count--; 
     },
   },
 };

@@ -27,4 +27,17 @@ describe('ItemCounter', () => {
     await add.trigger('click');
     expect(count.text()).toEqual('2');
   })
+
+  it('won\'t let item count go below 0', async () => {
+    const wrapper = shallowMount(ItemCounter);
+    const remove = wrapper.find('.counter--remove');
+    const count = wrapper.find('.counter');
+
+    await remove.trigger('click');
+    expect(count.text()).toEqual('0');
+    await remove.trigger('click');
+    expect(count.text()).toEqual('0');
+    await remove.trigger('click');
+    expect(count.text()).toEqual('0');
+  })
 })
