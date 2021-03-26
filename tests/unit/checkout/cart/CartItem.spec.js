@@ -11,6 +11,7 @@ describe('CartItem', () => {
     expect(wrapper.find('.item__price--normal').exists()).toBe(true);
     expect(wrapper.find('.item__counter').exists()).toBe(true);
   });
+
   it('show parent props inside tags on: name, prices, and default count as 1', () => {
     const wrapper = mount(CartItem, {
       props: {
@@ -27,8 +28,6 @@ describe('CartItem', () => {
         }
       }
     })
-
-
     const name = wrapper.find('.item__name');
     const offerPrice = wrapper.find('.item__price--offer');
     const normalPrice = wrapper.find('.item__price--normal');
@@ -37,15 +36,15 @@ describe('CartItem', () => {
     expect(name.text()).toEqual('Silla Gamer');
     expect(offerPrice.text()).toEqual("$129");
     expect(normalPrice.text()).toEqual("$200");
-    expect(counter.find('h1').text()).toEqual("1");
+    expect(counter.find('.counter').text()).toEqual("1");
   })
+
+  // waits 1 second after is mounted, then stop loading
+  // and shows the image, this way I can test it easier
   it('shows picture after 0,1 second from mounted hook', () => {
     const wrapper = shallowMount(CartItem);
-    // waits 1 second after is mounted, then stop loading
-    // and shows the image, this way I can test it easier
     expect(wrapper.vm.isLoading).toBe(true);
     expect(wrapper.find('.picture').exists()).toBe(false);
-
     setTimeout(() => {
       expect(wrapper.vm.isLoading).toBe(false);
       expect(wrapper.find('.picture').exists()).toBe(true);
