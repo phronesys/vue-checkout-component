@@ -2,9 +2,9 @@
   <div class="counter-box">
     <button class="counter--remove material-icons">remove</button>
     <h1 class="counter">
-      {{ counter }}
+      {{ count }}
     </h1>
-    <button class="counter--add material-icons">add</button>
+    <button class="counter--add material-icons" @click="add">add</button>
   </div>
 </template>
 
@@ -19,11 +19,16 @@ export default {
   data() {
     return {
       count: this.counter,
-    }
+    };
   },
   methods: {
-
-  }
+    add() {
+      this.count++;
+    },
+    remove() {
+      this.count--;
+    },
+  },
 };
 </script>
 
