@@ -41,6 +41,7 @@ export default {
 .counter {
   @apply text-xl font-semibold;
 }
+/* I could apply different animations for add and remove */
 .counter--remove {
   @apply bg-gray-200 rounded h-6;
 }

@@ -12,11 +12,19 @@ describe('ItemCounter', () => {
 
   it('pressing add and remove buttons increases or decrease the counter', async () => {
     const wrapper = shallowMount(ItemCounter);
-    // const remove = wrapper.find('.counter--remove');
+    const remove = wrapper.find('.counter--remove');
     const add = wrapper.find('.counter--add');
-    // const count = wrapper.find('.counter');
+    const count = wrapper.find('.counter');
 
     await add.trigger('click');
-    expect(wrapper.find('.counter').text()).toEqual('2');   
+    expect(count.text()).toEqual('2');
+    await add.trigger('click');
+    expect(count.text()).toEqual('3');
+    await remove.trigger('click');
+    expect(count.text()).toEqual('2');
+    await remove.trigger('click');
+    expect(count.text()).toEqual('1');
+    await add.trigger('click');
+    expect(count.text()).toEqual('2');
   })
 })
