@@ -41,7 +41,7 @@ export default {
   @apply border border-gray-400 rounded-xl;
 }
 .counter {
-  @apply text-xl font-semibold;
+  @apply text-xl font-semibold w-4;
 }
 /* I could apply different animations for add and remove */
 .counter--remove {
