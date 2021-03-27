@@ -16,6 +16,6 @@ describe('TheCheckout', () => {
 
     expect(wrapper.find('.checkout__title').exists()).toBe(true);
     const title = wrapper.find('.checkout__title');
-    expect(title.text()).toContain('The Checkout');
+    expect(title.text()).toContain('Checkout');
   })
 })

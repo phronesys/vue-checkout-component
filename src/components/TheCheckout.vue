@@ -1,7 +1,7 @@
 <template>
   <div class="checkout">
     <h1 class="checkout__title">
-      The Checkout
+      Checkout
     </h1>
     <div class="checkout__cart">
       <checkout-cart />
@@ -24,5 +24,10 @@ export default {
 };
 </script>
 
-<style>
+<style lang="postcss">
+.checkout__title{ 
+  @apply -mt-8;
+  @apply font-semibold text-xl;
+  @apply text-left ml-5;
+}
 </style>

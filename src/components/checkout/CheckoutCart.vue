@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <cart-list />
-    <cart-total />
+  <div class="cart-list">
+    <cart-list @set-total-price="updateTotal"/>
+    <cart-total :total="totalPrice"/>
   </div>
 </template>
 
@@ -14,8 +14,21 @@ export default {
     CartList,
     CartTotal,
   },
+  data() {
+    return {
+      totalPrice: 0,
+    }
+  },
+  methods: {
+    updateTotal(total) {
+      this.totalPrice = total;
+    }
+  }
 };
 </script>
 
-<style>
+<style lang="postcss">
+.cart-list {
+  @apply bg-gray-100 rounded-xl p-1 m-4;
+}
 </style>

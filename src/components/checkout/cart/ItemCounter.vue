@@ -28,9 +28,18 @@ export default {
       return this.count++;
     },
     remove() {
-      return (this.count <= 0) ? this.count : this.count--; 
+      return this.count <= 0 ? this.count : this.count--;
     },
   },
+  watch: {
+    count(state, prevState) {
+      if(state < prevState) {
+        this.$emit('updateCounters', -1);
+      } else {
+        this.$emit('updateCounters', 1);
+      }
+    }
+  }
 };
 </script>
 
