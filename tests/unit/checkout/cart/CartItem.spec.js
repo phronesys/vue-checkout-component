@@ -21,7 +21,14 @@ describe('CartItem', () => {
   it('renders ItemCounter component', ()=> {
     expect(wrapper.findComponent(ItemCounter).exists()).toBe(true);
   })
-
+  it('ItemCounter emits counterState', async () => {
+    // await wrapper.findComponent(ItemCounter).trigger('update-counters');
+    // changeAndId[x][y] => x is change and y is the id
+    await wrapper.vm.counterState(-1);
+    expect(wrapper.emitted().changeAndId[0][0]).toBe(-1);
+    await wrapper.vm.counterState(1);
+    expect(wrapper.emitted().changeAndId[1][0]).toBe(1);
+  })
   it('show parent props inside tags on: name, prices, and default count as 1', () => {
     const wrapper = mount(CartItem, {
       props: {
