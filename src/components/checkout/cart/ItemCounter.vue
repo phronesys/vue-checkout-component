@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  emits: ["updateCounters"],
   props: {
     counter: {
       type: Number,
@@ -30,16 +31,19 @@ export default {
     remove() {
       return this.count <= 0 ? this.count : this.count--;
     },
+    sendEmit(change) {
+      this.$emit("updateCounters", change);
+    },
   },
   watch: {
     count(state, prevState) {
-      if(state < prevState) {
-        this.$emit('updateCounters', -1);
+      if (state < prevState) {
+        this.sendEmit(-1);
       } else {
-        this.$emit('updateCounters', 1);
+        this.sendEmit(1);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -52,7 +56,7 @@ export default {
 .counter {
   @apply text-xl font-semibold w-4;
 }
-/* I could apply different animations for add and remove */
+/* I could apply different animations for adding and removing */
 .counter--remove {
   @apply bg-gray-200 rounded h-6;
 }

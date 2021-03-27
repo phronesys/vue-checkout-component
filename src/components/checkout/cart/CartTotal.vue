@@ -2,7 +2,7 @@
   <div class="price">
     <div class="price__shipping">
       <h1>Shipping</h1>
-      <p>${{ shipping }}</p>
+      <p>${{ showShipping }}</p>
     </div>
     <div class="price__total">
       <h1>Total</h1>
@@ -16,7 +16,7 @@ export default {
   props: {
     total: {
       type: Number,
-      default: 0,
+      default: 140,
     },
   },
   data() {
@@ -28,6 +28,9 @@ export default {
   computed: {
     showTotal() {
       return this.total > 6 ? this.total : 0;
+    },
+    showShipping() {
+      return this.total > 6 ? 6 : 0;
     }
   },
   watch: {

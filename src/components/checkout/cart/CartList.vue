@@ -12,6 +12,7 @@ export default {
   components: {
     CartItem,
   },
+  emits: ['setTotalPrice'],
   methods: {
     updateCounters(change, id){
       this.items.forEach( item => {

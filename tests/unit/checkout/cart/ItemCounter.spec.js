@@ -11,11 +11,11 @@ afterEach(() => {
 describe('ItemCounter', () => {
   it('renders two buttons and one counter', () => {
     expect(wrapper.find('.counter--remove').text()).toEqual('remove');
-    expect(wrapper.find('.counter').text()).toEqual('1');
+    expect(wrapper.findAll('.counter')).toHaveLength(1);
     expect(wrapper.find('.counter--add').text()).toEqual('add');
   })
 
-  it('pressing add and remove buttons increases or decrease the counter', async () => {
+  it('pressing add and remove buttons will increase or decrease the counter', async () => {
     const remove = wrapper.find('.counter--remove');
     const add = wrapper.find('.counter--add');
     const count = wrapper.find('.counter');
@@ -42,5 +42,15 @@ describe('ItemCounter', () => {
     expect(count.text()).toEqual('0');
     await remove.trigger('click');
     expect(count.text()).toEqual('0');
+  })
+  it('emits update-counters', async () => {
+    const remove = wrapper.find('.counter--remove');
+    const add = wrapper.find('.counter--add');
+    await remove.trigger('click');
+    expect(wrapper.emitted()).toHaveProperty('updateCounters')
+    await add.trigger('click');
+    expect(wrapper.emitted().updateCounters).toHaveLength(2);
+    expect(wrapper.emitted().updateCounters[0]).toEqual([-1]);
+    expect(wrapper.emitted().updateCounters[1]).toEqual([1]);
   })
 })

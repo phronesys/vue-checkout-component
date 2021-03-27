@@ -27,6 +27,7 @@ export default {
   components: {
     ItemCounter,
   },
+  emits: ['changeAndId'],
   props: {
     itemProp: {
       type: Object,
