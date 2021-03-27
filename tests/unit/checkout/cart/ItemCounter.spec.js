@@ -43,7 +43,7 @@ describe('ItemCounter', () => {
     await remove.trigger('click');
     expect(count.text()).toEqual('0');
   })
-  it('emits update-counters', async () => {
+  it('emits updateCounters when adding or removing to cart', async () => {
     const remove = wrapper.find('.counter--remove');
     const add = wrapper.find('.counter--add');
     await remove.trigger('click');

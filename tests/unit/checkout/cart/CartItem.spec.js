@@ -1,16 +1,26 @@
 import { shallowMount, mount } from '@vue/test-utils';
 import CartItem from '@/components/checkout/cart/CartItem';
+import ItemCounter from '@/components/checkout/cart/ItemCounter';
+
+let wrapper = null;
+beforeEach(() => {
+  wrapper = shallowMount(CartItem);
+});
+afterEach(() => {
+  wrapper.unmount();
+})
 
 describe('CartItem', () => {
   it('won\'t show picture, shows name, price and counter classes', () => {
-    const wrapper = shallowMount(CartItem);
-
     expect(wrapper.find('.picture').exists()).toBe(false);
     expect(wrapper.find('.item__name').exists()).toBe(true);
     expect(wrapper.find('.item__price--offer').exists()).toBe(true);
     expect(wrapper.find('.item__price--normal').exists()).toBe(true);
     expect(wrapper.find('.item__counter').exists()).toBe(true);
   });
+  it('renders ItemCounter component', ()=> {
+    expect(wrapper.findComponent(ItemCounter).exists()).toBe(true);
+  })
 
   it('show parent props inside tags on: name, prices, and default count as 1', () => {
     const wrapper = mount(CartItem, {
@@ -39,10 +49,9 @@ describe('CartItem', () => {
     expect(counter.find('.counter').text()).toEqual("1");
   })
 
-  // waits 1 second after is mounted, then stop loading
-  // and shows the image, this way I can test it easier
+  // waits 0,1 second after is mounted, then stop loading
+  // and shows the image, this way is easier to test
   it('shows picture after 0,1 second from mounted hook', () => {
-    const wrapper = shallowMount(CartItem);
     expect(wrapper.vm.isLoading).toBe(true);
     expect(wrapper.find('.picture').exists()).toBe(false);
     setTimeout(() => {
@@ -51,5 +60,6 @@ describe('CartItem', () => {
       const picture = wrapper.find('.item__picture');
       expect(picture.attributes().src).toEqual('@/assets/cart-item-1.jpeg')
     }, 100)
-  })
+  });
+
 })
