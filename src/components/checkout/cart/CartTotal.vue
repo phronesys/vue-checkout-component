@@ -43,5 +43,18 @@ export default {
 };
 </script>
 
-<style>
+<style lang="postcss">
+.price {
+  @apply flex flex-col justify-center mx-auto;
+  @apply w-10/12 mt-16;
+  @apply font-semibold;
+}
+.price__shipping {
+  @apply flex flex-row justify-between;
+  @apply mb-6;
+}
+.price__total {
+  @apply flex flex-row justify-between;
+  @apply mb-6;
+}
 </style>
