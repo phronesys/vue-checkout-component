@@ -39,5 +39,12 @@ describe('CartList', () => {
     const SHIPPING = 6;
     const TOTAL_DEFAULT = CHAIR_OFFER_PRICE + PILLOWS_OFFER_PRICE + SHIPPING;
     expect(wrapper.vm.totalPrice).toEqual(TOTAL_DEFAULT);
+    wrapper.vm.updateCounters(REMOVE, SILLA_GAMER_POS); 
+    // - 126
+    expect(wrapper.vm.totalPrice).toEqual(TOTAL_DEFAULT - CHAIR_OFFER_PRICE);
+    wrapper.vm.updateCounters(ADD, SILLA_GAMER_POS);
+    wrapper.vm.updateCounters(ADD, SILLA_GAMER_POS);
+    // we have 2 chairs now
+    expect(wrapper.vm.totalPrice).toEqual(TOTAL_DEFAULT + CHAIR_OFFER_PRICE);
   })
 })
