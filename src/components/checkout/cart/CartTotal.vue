@@ -52,6 +52,15 @@ export default {
   @apply w-10/12 mt-16;
   @apply font-semibold;
 }
+.price__shipping::before {
+  content: "";
+  height: .1px;
+  display: block;
+  background-color: black;
+  width: 100%;
+  height: .1px;
+  transform: translateY(-50%);
+}
 .price__shipping {
   @apply flex flex-row justify-between;
   @apply mb-6;
