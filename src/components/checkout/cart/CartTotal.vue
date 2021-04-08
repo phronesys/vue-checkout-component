@@ -1,9 +1,11 @@
 <template>
   <div class="price">
+    <div class="border"></div>
     <div class="price__shipping">
       <h1>Shipping</h1>
       <p>${{ showShipping }}</p>
     </div>
+    <div class="border"></div>
     <div class="price__total">
       <h1>Total</h1>
       <p>${{ showTotal }}</p>
@@ -49,18 +51,10 @@ export default {
 <style lang="postcss">
 .price {
   @apply flex flex-col justify-center mx-auto;
-  @apply w-10/12 mt-16;
+  @apply mt-16 px-6;
   @apply font-semibold;
 }
-.price__shipping::before {
-  content: "";
-  height: .1px;
-  display: block;
-  background-color: black;
-  width: 100%;
-  height: .1px;
-  transform: translateY(-50%);
-}
+
 .price__shipping {
   @apply flex flex-row justify-between;
   @apply mb-6;
@@ -68,5 +62,9 @@ export default {
 .price__total {
   @apply flex flex-row justify-between;
   @apply mb-6;
+}
+.border {
+  border-bottom: solid 1px #BDBDBD;
+  margin-bottom: 1rem;
 }
 </style>

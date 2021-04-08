@@ -25,6 +25,9 @@ export default {
 </script>
 
 <style lang="postcss">
+.checkout {
+  width: max-content;
+}
 .checkout__title{ 
   @apply -mt-8;
   @apply font-semibold text-xl;
